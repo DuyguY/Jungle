@@ -1,0 +1,22 @@
+<<section class="admin-categories-index">
+
+<header class="page-header">
+  <h1>Admin &raquo; All categories</h1>
+</header>
+
+<div class="well">
+  <%= link_to '+ New category', [:new, :admin, :category], class: 'btn btn-info' %>
+</div>
+
+<div class="panel panel-default categories">
+  <ul>
+    <% @categories.each do |item| %>
+      <li>
+        <%= item.name %>
+      </li>
+      <% end %>
+  </ul>
+
+</div>
+
+</section>
