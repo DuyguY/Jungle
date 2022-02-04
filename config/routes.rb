@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:create, :show]
 
-  resources :about, only: [:show]
+  resources :about, only: [:index]
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
