@@ -47,5 +47,17 @@ RSpec.describe Product, type: :model do
       expect(product).to_not be_valid
       expect(product.errors.full_messages).to include "Category can't be blank"
     end 
+
+    it 'is valid with valid attributes' do
+      category = Category.create(name: "test_category")
+      product = Product.create(
+        name: 'Electric Chair',
+        price_cents: 987.65,
+        quantity: 2,
+        category_id: category.id,
+     )
+      expect(product).to be_valid
+      expect(product.errors.full_messages).to be_empty
+    end 
   end
 end    
