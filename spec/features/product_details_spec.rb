@@ -18,8 +18,6 @@ before :each do
   scenario "They see product details page" do
     visit root_path
     find_link("Details").trigger("click")
-    # expect(page).to have_content("Description") 
-    # expect(page).to have_content("Quantity")
     expect(page).to have_css 'section.products-show' 
     sleep 5 
     save_screenshot
