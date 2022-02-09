@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
   def new
   end
@@ -7,7 +8,7 @@ class UsersController < ApplicationController
     
     if user.save
       session[:user_id] = user.id
-      redirect_to ':root, notice: "User created!"'
+      redirect_to "/"
     else
       render :new
     end
