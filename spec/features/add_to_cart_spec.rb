@@ -17,8 +17,11 @@ RSpec.feature "AddToCarts", type: :feature, js:true do
 
   scenario "My Cart is updated to show it contains 1 product" do
     visit root_path
-    find_link("Add to Cart").trigger("click")
-    expect(page).to have_css 'section.cart-show'
+    button = page.first("article.product:nth-child(2) .btn")
+    button.trigger("click")
+    expect(page).to have_css 'section.products-index'
+    sleep 5 
+    expect(page).to have_content 'My Cart (1)'
     sleep 5 
     save_screenshot
   end 
